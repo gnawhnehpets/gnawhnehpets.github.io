@@ -45,6 +45,180 @@
   <meta property="og:title" content="">
   <meta property="og:locale" content="en-us">
   <meta property="og:updated_time" content="2019-08-18T15:48:02-07:00">
+  <style>
+    .portfolio-grid {
+      display: grid;
+      gap: 1.5rem;
+      margin-top: 1.75rem;
+    }
+
+    .portfolio-grid--featured {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .portfolio-grid--more {
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 1.5rem;
+    }
+
+    @media (max-width: 767px) {
+      .portfolio-grid--featured, .portfolio-grid--more {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .pf-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      padding: 1.75rem 1.5rem 1.5rem;
+      border-radius: 14px;
+      background: #282a36;
+      border: 1px solid #3f4250;
+      overflow: hidden;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+
+    .pf-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #f76497, #f7a464);
+      opacity: .85;
+    }
+
+    .pf-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, .35);
+      border-color: #f76497;
+    }
+
+    .pf-card__icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 46px;
+      height: 46px;
+      border-radius: 10px;
+      background: rgba(247, 100, 151, .12);
+      color: #f76497;
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .pf-card__badge {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.5rem;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: #f76497;
+      border: 1px solid rgba(247, 100, 151, .5);
+      border-radius: 20px;
+      padding: .2rem .65rem;
+    }
+
+    .pf-card__title {
+      font-weight: 700;
+      margin: 0 0 .15rem;
+      color: #fff;
+    }
+
+    .portfolio-grid--featured .pf-card__title {
+      font-size: 1.3rem;
+    }
+
+    .portfolio-grid--more .pf-card__title {
+      font-size: 1.05rem;
+    }
+
+    .pf-card__subtitle {
+      font-size: .78rem;
+      color: #f7a464;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      margin-bottom: .85rem;
+    }
+
+    .pf-card__text {
+      color: rgba(255, 255, 255, .72);
+      font-size: .92rem;
+      line-height: 1.55;
+      margin-bottom: 1.1rem;
+      flex-grow: 1;
+    }
+
+    .portfolio-grid--more .pf-card__text {
+      font-size: .85rem;
+    }
+
+    .pf-card__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .pf-card__tags span {
+      font-size: .68rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, .68);
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: 20px;
+      padding: .2rem .6rem;
+    }
+
+    .pf-card__links {
+      display: flex;
+      gap: .6rem;
+      margin-top: auto;
+    }
+
+    .pf-card__links a {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .8rem;
+      font-weight: 600;
+      padding: .4rem .85rem;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: background .2s ease, color .2s ease, border-color .2s ease;
+    }
+
+    .pf-card__links a.is-primary {
+      background: #f76497;
+      color: #1e1f29;
+      border: 1px solid #f76497;
+    }
+
+    .pf-card__links a.is-primary:hover {
+      background: #f7a464;
+      border-color: #f7a464;
+    }
+
+    .pf-card__links a.is-secondary {
+      background: transparent;
+      color: rgba(255, 255, 255, .8);
+      border: 1px solid rgba(255, 255, 255, .25);
+    }
+
+    .pf-card__links a.is-secondary:hover {
+      border-color: #f76497;
+      color: #f76497;
+    }
+
+    .home-section.wg-portfolio p {
+      color: rgba(255, 255, 255, .6);
+    }
+  </style>
 </head>
 
 <body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71" class="dark">
@@ -310,69 +484,101 @@
           <p>A few things built for fun and for keeps &mdash; side projects, experiments, and tools.</p>
         </div>
       </div>
-      <div class="row">
-        <div class="col-12 col-md-6 mb-4">
-          <div class="card h-100">
-            <div class="card-body">
-              <h3 class="card-title">Kei Tracker</h3>
-              <p class="card-subtitle mb-2" style="opacity:0.7;">Live web app</p>
-              <p class="card-text">Tracking the trans-Pacific journey of a Sambar &mdash; a real-time tracker built
-                to follow a kei truck's shipment from Japan to the U.S.</p>
-              <a href="https://kei-tracker.vercel.app/" target="_blank" rel="noopener"
-                class="btn btn-outline-primary btn-sm mr-2">Visit site</a>
-              <a href="https://github.com/gnawhnehpets/kei-tracker" target="_blank" rel="noopener"
-                class="btn btn-outline-secondary btn-sm"><i class="fab fa-github"></i>&nbsp;Source</a>
-            </div>
+
+      <div class="portfolio-grid portfolio-grid--featured">
+        <div class="pf-card">
+          <span class="pf-card__badge">Featured</span>
+          <div class="pf-card__icon"><i class="fas fa-truck-moving"></i></div>
+          <h3 class="pf-card__title">Kei Tracker</h3>
+          <p class="pf-card__subtitle">Live web app</p>
+          <p class="pf-card__text">Tracking the trans-Pacific journey of a Sambar &mdash; a real-time tracker
+            built to follow a kei truck's shipment from Japan to the U.S.</p>
+          <div class="pf-card__tags">
+            <span>Python</span>
+            <span>Vercel</span>
+            <span>Real-time tracking</span>
+          </div>
+          <div class="pf-card__links">
+            <a href="https://kei-tracker.vercel.app/" target="_blank" rel="noopener" class="is-primary">
+              <i class="fas fa-external-link-alt"></i> Visit site
+            </a>
+            <a href="https://github.com/gnawhnehpets/kei-tracker" target="_blank" rel="noopener" class="is-secondary">
+              <i class="fab fa-github"></i> Source
+            </a>
           </div>
         </div>
-        <div class="col-12 col-md-6 mb-4">
-          <div class="card h-100">
-            <div class="card-body">
-              <h3 class="card-title">Suhocare</h3>
-              <p class="card-subtitle mb-2" style="opacity:0.7;">Side project &middot; augmenting human care with AI
-              </p>
-              <p class="card-text">Intelligent care agents delivering real-time wellness monitoring, companionship,
-                and fraud protection for loved ones &mdash; peace of mind powered by real-time intelligence.</p>
-              <a href="https://suhocare.com" target="_blank" rel="noopener"
-                class="btn btn-outline-primary btn-sm">Visit site</a>
-            </div>
+
+        <div class="pf-card">
+          <span class="pf-card__badge">Featured</span>
+          <div class="pf-card__icon"><i class="fas fa-heartbeat"></i></div>
+          <h3 class="pf-card__title">Suhocare</h3>
+          <p class="pf-card__subtitle">Side project &middot; augmenting human care with AI</p>
+          <p class="pf-card__text">Intelligent care agents delivering real-time wellness monitoring,
+            companionship, and fraud protection for loved ones &mdash; peace of mind powered by real-time
+            intelligence.</p>
+          <div class="pf-card__tags">
+            <span>AI agents</span>
+            <span>Care tech</span>
+          </div>
+          <div class="pf-card__links">
+            <a href="https://suhocare.com" target="_blank" rel="noopener" class="is-primary">
+              <i class="fas fa-external-link-alt"></i> Visit site
+            </a>
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-12 col-md-4 mb-4">
-          <div class="card h-100">
-            <div class="card-body">
-              <h3 class="card-title" style="font-size:1.1rem;">MCP + A2A Template</h3>
-              <p class="card-text" style="font-size:90%;">An end-to-end tutorial showcasing a complete agentic
-                pipeline using Anthropic's Model Context Protocol and Google's Agent2Agent for plug-and-play,
-                multi-agent coordination.</p>
-              <a href="https://github.com/gnawhnehpets/mcp-a2a-template" target="_blank" rel="noopener"
-                class="btn btn-outline-secondary btn-sm"><i class="fab fa-github"></i>&nbsp;Source</a>
-            </div>
+
+      <div class="portfolio-grid portfolio-grid--more">
+        <div class="pf-card">
+          <div class="pf-card__icon"><i class="fas fa-project-diagram"></i></div>
+          <h3 class="pf-card__title">MCP + A2A Template</h3>
+          <p class="pf-card__text">An end-to-end tutorial showcasing a complete agentic pipeline using
+            Anthropic's Model Context Protocol and Google's Agent2Agent for plug-and-play, multi-agent
+            coordination.</p>
+          <div class="pf-card__tags">
+            <span>MCP</span>
+            <span>A2A</span>
+            <span>Agents</span>
+          </div>
+          <div class="pf-card__links">
+            <a href="https://github.com/gnawhnehpets/mcp-a2a-template" target="_blank" rel="noopener"
+              class="is-secondary">
+              <i class="fab fa-github"></i> Source
+            </a>
           </div>
         </div>
-        <div class="col-12 col-md-4 mb-4">
-          <div class="card h-100">
-            <div class="card-body">
-              <h3 class="card-title" style="font-size:1.1rem;">Hybrid Search (Qdrant)</h3>
-              <p class="card-text" style="font-size:90%;">A hybrid retrieval experiment combining full-text and
-                dense vector search with Qdrant &mdash; the same approach that boosted search relevance 80% in
-                production.</p>
-              <a href="https://github.com/gnawhnehpets/hybrid_search_qdrant" target="_blank" rel="noopener"
-                class="btn btn-outline-secondary btn-sm"><i class="fab fa-github"></i>&nbsp;Source</a>
-            </div>
+
+        <div class="pf-card">
+          <div class="pf-card__icon"><i class="fas fa-search"></i></div>
+          <h3 class="pf-card__title">Hybrid Search (Qdrant)</h3>
+          <p class="pf-card__text">A hybrid retrieval experiment combining full-text and dense vector search
+            with Qdrant &mdash; the same approach that boosted search relevance 80% in production.</p>
+          <div class="pf-card__tags">
+            <span>Qdrant</span>
+            <span>Vector search</span>
+          </div>
+          <div class="pf-card__links">
+            <a href="https://github.com/gnawhnehpets/hybrid_search_qdrant" target="_blank" rel="noopener"
+              class="is-secondary">
+              <i class="fab fa-github"></i> Source
+            </a>
           </div>
         </div>
-        <div class="col-12 col-md-4 mb-4">
-          <div class="card h-100">
-            <div class="card-body">
-              <h3 class="card-title" style="font-size:1.1rem;">Unraid + Grafana/Prometheus</h3>
-              <p class="card-text" style="font-size:90%;">Homelab observability stack &mdash; Prometheus metrics and
-                Grafana dashboards monitoring an Unraid server.</p>
-              <a href="https://github.com/gnawhnehpets/unraid-grafana-prometheus" target="_blank" rel="noopener"
-                class="btn btn-outline-secondary btn-sm"><i class="fab fa-github"></i>&nbsp;Source</a>
-            </div>
+
+        <div class="pf-card">
+          <div class="pf-card__icon"><i class="fas fa-server"></i></div>
+          <h3 class="pf-card__title">Unraid + Grafana/Prometheus</h3>
+          <p class="pf-card__text">Homelab observability stack &mdash; Prometheus metrics and Grafana
+            dashboards monitoring an Unraid server.</p>
+          <div class="pf-card__tags">
+            <span>Prometheus</span>
+            <span>Grafana</span>
+          </div>
+          <div class="pf-card__links">
+            <a href="https://github.com/gnawhnehpets/unraid-grafana-prometheus" target="_blank" rel="noopener"
+              class="is-secondary">
+              <i class="fab fa-github"></i> Source
+            </a>
           </div>
         </div>
       </div>
